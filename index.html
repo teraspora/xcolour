@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Color Picker</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Image Color Picker</h1>
+        
+        <div id="upload-section">
+            <label for="image-upload" class="upload-label">Select an image from your computer</label>
+            <input type="file" id="image-upload" accept="image/*">
+        </div>
+        
+        <div id="app-container" class="hidden">
+            <div class="image-container">
+                <canvas id="image-canvas"></canvas>
+                <button id="done-button">Done</button>
+            </div>
+            
+            <div class="colors-container">
+                <div class="colors-header">
+                    <h2>Selected Colors</h2>
+                    <div id="color-counter" class="color-counter"></div>
+                    <button id="clear-button" class="clear-button">Clear All</button>
+                </div>
+                <div id="colors-list" class="colors-list"></div>
+            </div>
+        </div>
+        
+        <div id="success-message" class="hidden">
+            <p>Colors copied to clipboard!</p>
+            <button id="new-image-button">Pick colors from another image</button>
+        </div>
+    </div>
+    
+    <script src="scripts/main.js"></script>
+</body>
+</html>
