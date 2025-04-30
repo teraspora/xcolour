@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Tiles with Random Letters</title>
+    <link href="https://fonts.cdnfonts.com/css/lovelo" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .tiles-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .tile {
+            width: 100px;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* font-family: "LoveLo Black", sans-serif; */
+            font-family: "LoveLo Black", sans-serif;
+            font-size: 72px;
+            font-weight: bold;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            text-shadow: -2px 2px 4px rgba(0, 0, 0, 0.5),
+                2px -2px 0 rgba(255, 255, 255, 0.9);
+        }
+
+        .info-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .info-section {
+            display: flex;
+            align-items: center;
+        }
+
+        .color-sample {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            margin-right: 8px;
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .info-text {
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <h1>120 Color Tile Combinations</h1>
+    
+    <div class="tiles-container" id="tiles-container"></div>
+
+    <script>
+        const golds = [
+            {
+                "id": "color-1745845696874",
+                "hex": "#fedf87",
+                "rgb": "rgb(254, 223, 135)",
+                "r": 254,
+                "g": 223,
+                "b": 135
+            },
+            {
+                "id": "color-1745845699270",
+                "hex": "#dc9627",
+                "rgb": "rgb(220, 150, 39)",
+                "r": 220,
+                "g": 150,
+                "b": 39
+            },
+            {
+                "id": "color-1745845701982",
+                "hex": "#c88f25",
+                "rgb": "rgb(200, 143, 37)",
+                "r": 200,
+                "g": 143,
+                "b": 37
+            },
+            {
+                "id": "color-1745845703386",
+                "hex": "#a45c10",
+                "rgb": "rgb(164, 92, 16)",
+                "r": 164,
+                "g": 92,
+                "b": 16
+            },
+            {
+                "id": "color-1745845705430",
+                "hex": "#b26c14",
+                "rgb": "rgb(178, 108, 20)",
+                "r": 178,
+                "g": 108,
+                "b": 20
+            },
+            {
+                "id": "color-1745845706464",
+                "hex": "#9a5f24",
+                "rgb": "rgb(154, 95, 36)",
+                "r": 154,
+                "g": 95,
+                "b": 36
+            },
+            {
+                "id": "color-1745845709307",
+                "hex": "#f3bc48",
+                "rgb": "rgb(243, 188, 72)",
+                "r": 243,
+                "g": 188,
+                "b": 72
+            },
+            {
+                "id": "color-1745845710314",
+                "hex": "#c27813",
+                "rgb": "rgb(194, 120, 19)",
+                "r": 194,
+                "g": 120,
+                "b": 19
+            },
+            {
+                "id": "color-1745845717134",
+                "hex": "#f6c157",
+                "rgb": "rgb(246, 193, 87)",
+                "r": 246,
+                "g": 193,
+                "b": 87
+            },
+            {
+                "id": "color-1745845718855",
+                "hex": "#b57612",
+                "rgb": "rgb(181, 118, 18)",
+                "r": 181,
+                "g": 118,
+                "b": 18
+            }
+        ];
+
+        const blues = [
+            {
+                "id": "color-1745845782953",
+                "hex": "#0c1637",
+                "rgb": "rgb(12, 22, 55)",
+                "r": 12,
+                "g": 22,
+                "b": 55
+            },
+            {
+                "id": "color-1745845784200",
+                "hex": "#05123e",
+                "rgb": "rgb(5, 18, 62)",
+                "r": 5,
+                "g": 18,
+                "b": 62
+            },
+            {
+                "id": "color-1745845785661",
+                "hex": "#11214d",
+                "rgb": "rgb(17, 33, 77)",
+                "r": 17,
+                "g": 33,
+                "b": 77
+            },
+            {
+                "id": "color-1745845786577",
+                "hex": "#0c133d",
+                "rgb": "rgb(12, 19, 61)",
+                "r": 12,
+                "g": 19,
+                "b": 61
+            },
+            {
+                "id": "color-1745845787873",
+                "hex": "#1e3467",
+                "rgb": "rgb(30, 52, 103)",
+                "r": 30,
+                "g": 52,
+                "b": 103
+            },
+            {
+                "id": "color-1745845788943",
+                "hex": "#02275c",
+                "rgb": "rgb(2, 39, 92)",
+                "r": 2,
+                "g": 39,
+                "b": 92
+            },
+            {
+                "id": "color-1745845791309",
+                "hex": "#2d527a",
+                "rgb": "rgb(45, 82, 122)",
+                "r": 45,
+                "g": 82,
+                "b": 122
+            },
+            {
+                "id": "color-1745845792431",
+                "hex": "#2b5482",
+                "rgb": "rgb(43, 84, 130)",
+                "r": 43,
+                "g": 84,
+                "b": 130
+            },
+            {
+                "id": "color-1745845794193",
+                "hex": "#375973",
+                "rgb": "rgb(55, 89, 115)",
+                "r": 55,
+                "g": 89,
+                "b": 115
+            },
+            {
+                "id": "color-1745845795856",
+                "hex": "#426384",
+                "rgb": "rgb(66, 99, 132)",
+                "r": 66,
+                "g": 99,
+                "b": 132
+            },
+            {
+                "id": "color-1745845797610",
+                "hex": "#1e517e",
+                "rgb": "rgb(30, 81, 126)",
+                "r": 30,
+                "g": 81,
+                "b": 126
+            },
+            {
+                "id": "color-1745845798360",
+                "hex": "#436487",
+                "rgb": "rgb(67, 100, 135)",
+                "r": 67,
+                "g": 100,
+                "b": 135
+            }
+        ];
+
+        // Function to get a random uppercase letter
+        function getRandomLetter() {
+            const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            return alphabet[Math.floor(Math.random() * alphabet.length)];
+        }
+
+        // Function to create all possible pairs of gold and blue colors
+        function createColorPairs(golds, blues) {
+            const pairs = [];
+            
+            for (const gold of golds) {
+                for (const blue of blues) {
+                    pairs.push({
+                        background: blue.hex,
+                        text: gold.hex,
+                        letter: getRandomLetter()
+                    });
+                }
+            }
+            
+            return pairs;
+        }
+
+        // Function to create tiles
+        function createTiles(pairs) {
+            const container = document.getElementById('tiles-container');
+            
+            pairs.forEach((pair, index) => {
+                const tile = document.createElement('div');
+                tile.className = 'tile';
+                tile.style.backgroundColor = pair.background;
+                tile.style.color = pair.text;
+                tile.textContent = pair.letter;
+                
+                container.appendChild(tile);
+            });
+        }
+
+        // Create the tiles when the page loads
+        window.onload = function() {
+            const colorPairs = createColorPairs(golds, blues);
+            createTiles(colorPairs);
+        };
+    </script>
+</body>
+</html>
