@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Light Blue Ellipse Background Experiments</title>
+<style>
+    * {
+        --yellow1: rgb(252, 188, 18);
+        --tile-blue: rgb(3, 6, 73);
+        
+        /* Light blue variations from provided list */
+        --blue-1: rgb(34, 187, 235);
+        --blue-2: rgb(173, 240, 233);
+        --blue-3: rgb(97, 213, 221);
+        --blue-4: rgb(80, 221, 245);
+        --blue-5: rgb(122, 225, 242);
+        --blue-6: rgb(0, 204, 230);
+        --blue-7: rgb(117, 217, 224);
+        --blue-8: rgb(147, 226, 230);
+        --blue-9: rgb(48, 176, 216);
+        --blue-10: rgb(135, 234, 227);
+        --blue-11: rgb(125, 234, 227);
+        --blue-12: rgb(0, 148, 188);
+        --blue-13: rgb(38, 164, 198);
+        --blue-14: rgb(62, 205, 251);
+        --blue-15: rgb(91, 204, 247);
+        --blue-16: rgb(106, 161, 204);
+        --blue-17: rgb(77, 144, 205);
+        --blue-18: rgb(127, 183, 232);
+        --blue-19: rgb(11, 118, 171);
+        --blue-20: rgb(10, 181, 231);
+        --blue-21: rgb(80, 128, 196);
+    }
+    
+    body {
+        background-color: #333;
+        margin: 0;
+        padding: 20px;
+        font-family: Arial, sans-serif;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        min-height: 100vh;
+        align-items: center;
+        justify-items: center;
+    }
+    
+    .title {
+        grid-column: 1 / -1;
+        font-size: 24px;
+        font-weight: bold;
+        color: white;
+        text-align: center;
+        margin-bottom: 20px;
+        background-color: rgba(0,0,0,0.7);
+        padding: 10px 20px;
+        border-radius: 8px;
+    }
+    
+    .ellipse {
+        width: 400px;
+        height: 100px;
+        border-radius: 200px / 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        padding: 8px 16px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+    
+    .letter-tile {
+        width: 40px;
+        height: 40px;
+        background-color: var(--tile-blue);
+        color: var(--yellow1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        font-weight: bold;
+        font-family: Arial, sans-serif;
+        border-radius: 6px;
+        border: 1px solid #000;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Ellipse background classes */
+    .ellipse-1 { background-color: var(--blue-1); }
+    .ellipse-2 { background-color: var(--blue-2); }
+    .ellipse-3 { background-color: var(--blue-3); }
+    .ellipse-4 { background-color: var(--blue-4); }
+    .ellipse-5 { background-color: var(--blue-5); }
+    .ellipse-6 { background-color: var(--blue-6); }
+    .ellipse-7 { background-color: var(--blue-7); }
+    .ellipse-8 { background-color: var(--blue-8); }
+    .ellipse-9 { background-color: var(--blue-9); }
+    .ellipse-10 { background-color: var(--blue-10); }
+    .ellipse-11 { background-color: var(--blue-11); }
+    .ellipse-12 { background-color: var(--blue-12); }
+    .ellipse-13 { background-color: var(--blue-13); }
+    .ellipse-14 { background-color: var(--blue-14); }
+    .ellipse-15 { background-color: var(--blue-15); }
+    .ellipse-16 { background-color: var(--blue-16); }
+    .ellipse-17 { background-color: var(--blue-17); }
+    .ellipse-18 { background-color: var(--blue-18); }
+    .ellipse-19 { background-color: var(--blue-19); }
+    .ellipse-20 { background-color: var(--blue-20); }
+    .ellipse-21 { background-color: var(--blue-21); }
+    
+    .color-label {
+        font-size: 20px;
+        color: white;
+        text-align: center;
+        margin-top: 5px;
+        background-color: rgba(0,0,0,0.7);
+        padding: 4px 8px;
+        border-radius: 4px;
+    }
+    
+    @media (max-width: 1400px) {
+        body {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    
+    @media (max-width: 900px) {
+        body {
+            grid-template-columns: 1fr;
+        }
+        
+        .ellipse {
+            width: 90vw;
+            height: 12vw;
+            border-radius: 45vw / 6vw;
+        }
+        
+        .letter-tile {
+            width: 8vw;
+            height: 8vw;
+            font-size: 4vw;
+        }
+        
+        .color-label {
+            font-size: 3vw;
+        }
+    }
+</style>
+</head>
+<body>
+    <div class="title">Letter: rgb(252, 188, 18) | Tile: rgb(3, 6, 73) | Experimenting with Light Blue Ellipses</div>
+    
+    <!-- Blue 1 -->
+    <div>
+        <div class="ellipse ellipse-1">
+            <div class="letter-tile">S</div>
+            <div class="letter-tile">C</div>
+            <div class="letter-tile">W</div>
+            <div class="letter-tile">H</div>
+            <div class="letter-tile">J</div>
+            <div class="letter-tile">I</div>
+            <div class="letter-tile">K</div>
+            <div class="letter-tile">Z</div>
+        </div>
+        <div class="color-label">rgb(34, 187, 235) | #22bbeb</div>
+    </div>
+    
+    <!-- Blue 2 -->
+    <div>
+        <div class="ellipse ellipse-2">
+            <div class="letter-tile">S</div>
+            <div class="letter-tile">C</div>
+            <div class="letter-tile">W</div>
+            <div class="letter-tile">H</div>
+            <div class="letter-tile">J</div>
+            <div class="letter-tile">I</div>
+            <div class="letter-tile">K</div>
+            <div class="letter-tile">Z</div>
+        </div>
+        <div class="color-label">rgb(173, 240, 233) | #adf0e9</div>
+    </div>
+    
+    <!-- Blue 3 -->
+    <div>
+        <div class="ellipse ellipse-3">
+            <div class="letter-tile">S</div>
+            <div class="letter-tile">C</div>
+            <div class="letter-tile">W</div>
+            <div class="letter-tile">H</div>
+            <div class="letter-tile">J</div>
+            <div class="letter-tile">I</div>
+            <div class="letter-tile">K</div>
+            <div class="letter-tile">Z</div>
+        </div>
+        <div class="color-label">rgb(97, 213, 221) | #61d5dd</div>
+    </div>
+    
+    <!-- Blue 4 -->
+    <div>
+        <div class="ellipse ellipse-4">
+            <div class="letter-tile">S</div>
+            <div class="letter-tile">C</div>
+            <div class="letter-tile">W</div>
+            <div class="letter-tile">H</div>
+            <div class="letter-tile">J</div>
+            <div class="letter-tile">I</div>
+            <div class="letter-tile">K</div>
+            <div class="letter-tile">Z</div>
+        </div>
+        <div class="color-label">rgb(80, 221, 245) | #50ddf5</div>
+    </div>
+    
+    <!-- Blue 5 -->
+    <div>
+        <div class="ellipse ellipse-5">
+            <div class="letter-tile">S</div>
+            <div class="letter-tile">C</div>
+            <div class="letter-tile">W</div>
+            <div class="letter-tile">H</div>
+            <div class="letter-tile">J</div>
+            <div class="letter-tile">I</div>
+            <div class="letter-tile">K</div>
+            <div class="letter-tile">Z</div>
+        </div>
+        <div class="color-label">rgb(122, 225, 242) | #7ae1f2</div>
+    </div>
+    
+    <!-- Blue 6 -->
+    <div>
+        <div class="ellipse ellipse-6">
+            <div class="letter-tile">S</div>
+            <div class="letter-tile">C</div>
+            <div class="letter-tile">W</div>
+            <div class="letter-tile">H</div>
+            <div class="letter-tile">J</div>
+            <div class="letter-tile">I</div>
+            <div class="letter-tile">K</div>
+            <div class="letter-tile">Z</div>
+        </div>
+        <div class="color-label">rgb(0, 204, 230) | #00cce6</div>
+    </div>
+    
+    <!-- Blue 7 -->
+    <div>
+        <div class="ellipse ellipse-7">
+            <div class="letter-tile">S</div>
+            <div class="letter-tile">C</div>
+            <div class="letter-tile">W</div>
+            <div class="letter-tile">H</div>
+            <div class="letter-tile">J</div>
+            <div class="letter-tile">I</div>
+            <div class="letter-tile">K</div>
+            <div class="letter-tile">Z</div>
+        </div>
+        <div class="color-label">rgb(117, 217, 224) | #75d9e0</div>
+    </div>
+    
+    <!-- Blue 8 -->
+    <div>
+        <div class="ellipse ellipse-8">
+            <div class="letter-tile">S</div>
+            <div class="letter-tile">C</div>
+            <div class="letter-tile">W</div>
+            <div class="letter-tile">H</div>
+            <div class="letter-tile">J</div>
+            <div class="letter-tile">I</div>
+            <div class="letter-tile">K</div>
+            <div class="letter-tile">Z</div>
+        </div>
+        <div class="color-label">rgb(147, 226, 230) | #93e2e6</div>
+    </div>
+    
+    <!-- Blue 9 -->
+    <div>
+        <div class="ellipse ellipse-9">
+            <div class="letter-tile">S</div>
+            <div class="letter-tile">C</div>
+            <div class="letter-tile">W</div>
+            <div class="letter-tile">H</div>
+            <div class="letter-tile">J</div>
+            <div class="letter-tile">I</div>
+            <div class="letter-tile">K</div>
+            <div class="letter-tile">Z</div>
+        </div>
+        <div class="color-label">rgb(48, 176, 216) | #30b0d8</div>
+    </div>
+    
+    <!-- Blue 10 -->
+    <div>
+        <div class="ellipse ellipse-10">
+            <div class="letter-tile">S</div>
+            <div class="letter-tile">C</div>
+            <div class="letter-tile">W</div>
+            <div class="letter-tile">H</div>
+            <div class="letter-tile">J</div>
+            <div class="letter-tile">I</div>
+            <div class="letter-tile">K</div>
+            <div class="letter-tile">Z</div>
+        </div>
+        <div class="color-label">rgb(135, 234, 227) | #87eae3</div>
+    </div>
+    
+    <!-- Blue 11 -->
+    <div>
+        <div class="ellipse ellipse-11">
+            <div class="letter-tile">S</div>
+            <div class="letter-tile">C</div>
+            <div class="letter-tile">W</div>
+            <div class="letter-tile">H</div>
+            <div class="letter-tile">J</div>
+            <div class="letter-tile">I</div>
+            <div class="letter-tile">K</div>
+            <div class="letter-tile">Z</div>
+        </div>
+        <div class="color-label">rgb(125, 234, 227) | #7deae3</div>
+    </div>
+    
+    <!-- Blue 12 -->
+    <div>
+        <div class="ellipse ellipse-12">
+            <div class="letter-tile">S</div>
+            <div class="letter-tile">C</div>
+            <div class="letter-tile">W</div>
+            <div class="letter-tile">H</div>
+            <div class="letter-tile">J</div>
+            <div class="letter-tile">I</div>
+            <div class="letter-tile">K</div>
+            <div class="letter-tile">Z</div>
+        </div>
+        <div class="color-label">rgb(0, 148, 188) | #0094bc</div>
+    </div>
+    
+    <!-- Blue 13 -->
+    <div>
+        <div class="ellipse ellipse-13">
+            <div class="letter-tile">S</div>
+            <div class="letter-tile">C</div>
+            <div class="letter-tile">W</div>
+            <div class="letter-tile">H</div>
+            <div class="letter-tile">J</div>
+            <div class="letter-tile">I</div>
+            <div class="letter-tile">K</div>
+            <div class="letter-tile">Z</div>
+        </div>
+        <div class="color-label">rgb(38, 164, 198) | #26a4c6</div>
+    </div>
+    
+    <!-- Blue 14 -->
+    <div>
+        <div class="ellipse ellipse-14">
+            <div class="letter-tile">S</div>
+            <div class="letter-tile">C</div>
+            <div class="letter-tile">W</div>
+            <div class="letter-tile">H</div>
+            <div class="letter-tile">J</div>
+            <div class="letter-tile">I</div>
+            <div class="letter-tile">K</div>
+            <div class="letter-tile">Z</div>
+        </div>
+        <div class="color-label">rgb(62, 205, 251) | #3ecdfb</div>
+    </div>
+    
+    <!-- Blue 15 -->
+    <div>
+        <div class="ellipse ellipse-15">
+            <div class="letter-tile">S</div>
+            <div class="letter-tile">C</div>
+            <div class="letter-tile">W</div>
+            <div class="letter-tile">H</div>
+            <div class="letter-tile">J</div>
+            <div class="letter-tile">I</div>
+            <div class="letter-tile">K</div>
+            <div class="letter-tile">Z</div>
+        </div>
+        <div class="color-label">rgb(91, 204, 247) | #5bccf7</div>
+    </div>
+    
+    <!-- Blue 16 -->
+    <div>
+        <div class="ellipse ellipse-16">
+            <div class="letter-tile">S</div>
+            <div class="letter-tile">C</div>
+            <div class="letter-tile">W</div>
+            <div class="letter-tile">H</div>
+            <div class="letter-tile">J</div>
+            <div class="letter-tile">I</div>
+            <div class="letter-tile">K</div>
+            <div class="letter-tile">Z</div>
+        </div>
+        <div class="color-label">rgb(106, 161, 204) | #6aa1cc</div>
+    </div>
+    
+    <!-- Blue 17 -->
+    <div>
+        <div class="ellipse ellipse-17">
+            <div class="letter-tile">S</div>
+            <div class="letter-tile">C</div>
+            <div class="letter-tile">W</div>
+            <div class="letter-tile">H</div>
+            <div class="letter-tile">J</div>
+            <div class="letter-tile">I</div>
+            <div class="letter-tile">K</div>
+            <div class="letter-tile">Z</div>
+        </div>
+        <div class="color-label">rgb(77, 144, 205) | #4d90cd</div>
+    </div>
+    
+    <!-- Blue 18 -->
+    <div>
+        <div class="ellipse ellipse-18">
+            <div class="letter-tile">S</div>
+            <div class="letter-tile">C</div>
+            <div class="letter-tile">W</div>
+            <div class="letter-tile">H</div>
+            <div class="letter-tile">J</div>
+            <div class="letter-tile">I</div>
+            <div class="letter-tile">K</div>
+            <div class="letter-tile">Z</div>
+        </div>
+        <div class="color-label">rgb(127, 183, 232) | #7fb7e8</div>
+    </div>
+    
+    <!-- Blue 19 -->
+    <div>
+        <div class="ellipse ellipse-19">
+            <div class="letter-tile">S</div>
+            <div class="letter-tile">C</div>
+            <div class="letter-tile">W</div>
+            <div class="letter-tile">H</div>
+            <div class="letter-tile">J</div>
+            <div class="letter-tile">I</div>
+            <div class="letter-tile">K</div>
+            <div class="letter-tile">Z</div>
+        </div>
+        <div class="color-label">rgb(11, 118, 171) | #0b76ab</div>
+    </div>
+    
+    <!-- Blue 20 -->
+    <div>
+        <div class="ellipse ellipse-20">
+            <div class="letter-tile">S</div>
+            <div class="letter-tile">C</div>
+            <div class="letter-tile">W</div>
+            <div class="letter-tile">H</div>
+            <div class="letter-tile">J</div>
+            <div class="letter-tile">I</div>
+            <div class="letter-tile">K</div>
+            <div class="letter-tile">Z</div>
+        </div>
+        <div class="color-label">rgb(10, 181, 231) | #0ab5e7</div>
+    </div>
+    
+    <!-- Blue 21 -->
+    <div>
+        <div class="ellipse ellipse-21">
+            <div class="letter-tile">S</div>
+            <div class="letter-tile">C</div>
+            <div class="letter-tile">W</div>
+            <div class="letter-tile">H</div>
+            <div class="letter-tile">J</div>
+            <div class="letter-tile">I</div>
+            <div class="letter-tile">K</div>
+            <div class="letter-tile">Z</div>
+        </div>
+        <div class="color-label">rgb(80, 128, 196) | #5080c4</div>
+    </div>
+</body>
+</html>
