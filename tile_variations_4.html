@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Light Blue Ellipse Background Experiments</title>
+<style>
+    :root {
+        --yellow1: rgb(252, 188, 18);
+        --tile-blue: rgb(3, 6, 73);
+        
+        /* Edit this list to change colors - HTML will adapt automatically */
+        /* --clr-01: #22bbeb;
+        --clr-02: #3ecdfb;
+        --clr-03: #0ab5e7;
+        --clr-04: #30b0d8; */
+        --clr-05: #5bccf7;
+    }
+    
+    body {
+        background-color: #333;
+        margin: 0;
+        padding: 20px;
+        font-family: Arial, sans-serif;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        min-height: 100vh;
+        align-items: center;
+        justify-items: center;
+    }
+    
+    .title {
+        grid-column: 1 / -1;
+        font-size: 24px;
+        font-weight: bold;
+        color: white;
+        text-align: center;
+        margin-bottom: 20px;
+        background-color: rgba(0,0,0,0.7);
+        padding: 10px 20px;
+        border-radius: 8px;
+    }
+    
+    .ellipse {
+        width: 400px;
+        height: 100px;
+        border-radius: 200px / 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        padding: 8px 16px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+    
+    .letter-tile {
+        width: 40px;
+        height: 40px;
+        background-color: var(--tile-blue);
+        color: var(--yellow1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        font-weight: bold;
+        font-family: Arial, sans-serif;
+        border-radius: 6px;
+        border: 1px solid #000;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    
+    .color-label {
+        font-size: 20px;
+        color: white;
+        text-align: center;
+        margin-top: 5px;
+        background-color: rgba(0,0,0,0.7);
+        padding: 4px 8px;
+        border-radius: 4px;
+    }
+    
+    /* Dynamic ellipse backgrounds using CSS counter */
+    .ellipse-item {
+        counter-increment: color-counter;
+    }
+    
+    .ellipse-item:nth-child(2) .ellipse { background-color: var(--clr-00); }
+    .ellipse-item:nth-child(3) .ellipse { background-color: var(--clr-01); }
+    .ellipse-item:nth-child(4) .ellipse { background-color: var(--clr-02); }
+    .ellipse-item:nth-child(5) .ellipse { background-color: var(--clr-03); }
+    .ellipse-item:nth-child(6) .ellipse { background-color: var(--clr-04); }
+    .ellipse-item:nth-child(7) .ellipse { background-color: var(--clr-05); }
+    .ellipse-item:nth-child(8) .ellipse { background-color: var(--clr-06); }
+    .ellipse-item:nth-child(9) .ellipse { background-color: var(--clr-07); }
+    .ellipse-item:nth-child(10) .ellipse { background-color: var(--clr-08); }
+    .ellipse-item:nth-child(11) .ellipse { background-color: var(--clr-09); }
+    .ellipse-item:nth-child(12) .ellipse { background-color: var(--clr-10); }
+    .ellipse-item:nth-child(13) .ellipse { background-color: var(--clr-11); }
+    .ellipse-item:nth-child(14) .ellipse { background-color: var(--clr-12); }
+    .ellipse-item:nth-child(15) .ellipse { background-color: var(--clr-13); }
+    .ellipse-item:nth-child(16) .ellipse { background-color: var(--clr-14); }
+    .ellipse-item:nth-child(17) .ellipse { background-color: var(--clr-15); }
+    .ellipse-item:nth-child(18) .ellipse { background-color: var(--clr-16); }
+    .ellipse-item:nth-child(19) .ellipse { background-color: var(--clr-17); }
+    .ellipse-item:nth-child(20) .ellipse { background-color: var(--clr-18); }
+    .ellipse-item:nth-child(21) .ellipse { background-color: var(--clr-19); }
+    
+    @media (max-width: 1400px) {
+        body {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    
+    @media (max-width: 900px) {
+        body {
+            grid-template-columns: 1fr;
+        }
+        
+        .ellipse {
+            width: 90vw;
+            height: 12vw;
+            border-radius: 45vw / 6vw;
+        }
+        
+        .letter-tile {
+            width: 8vw;
+            height: 8vw;
+            font-size: 4vw;
+        }
+        
+        .color-label {
+            font-size: 3vw;
+        }
+    }
+</style>
+</head>
+<body>
+    <div class="title">Letter: rgb(252, 188, 18) | Tile: rgb(3, 6, 73) | Experimenting with Light Blue Ellipses</div>
+    
+    <script>
+        // Get all CSS custom properties starting with --clr-
+        const styles = getComputedStyle(document.documentElement);
+        const colors = [];
+        
+        // Extract color variables from CSS
+        for (let i = 0; i < 20; i++) {
+            const colorVar = `--clr-${i.toString().padStart(2, '0')}`;
+            const colorValue = styles.getPropertyValue(colorVar).trim();
+            if (colorValue) {
+                colors.push({ var: colorVar, value: colorValue });
+            }
+        }
+        
+        // Generate HTML for each color
+        const body = document.body;
+        colors.forEach((color, index) => {
+            const div = document.createElement('div');
+            div.className = 'ellipse-item';
+            div.innerHTML = `
+                <div class="ellipse">
+                    <div class="letter-tile">S</div>
+                    <div class="letter-tile">C</div>
+                    <div class="letter-tile">W</div>
+                    <div class="letter-tile">H</div>
+                    <div class="letter-tile">J</div>
+                    <div class="letter-tile">I</div>
+                    <div class="letter-tile">K</div>
+                    <div class="letter-tile">Z</div>
+                </div>
+                <div class="color-label">${color.value}</div>
+            `;
+            body.appendChild(div);
+        });
+    </script>
+</body>
+</html>

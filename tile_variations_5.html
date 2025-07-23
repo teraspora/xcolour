@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tile Background Color Experiments</title>
+<style>
+    :root {
+        --yellow1: rgb(252, 188, 18);
+        --ellipse-blue: #5bccf7;
+        
+        /* Edit this list to change tile background colors - HTML will adapt automatically */
+        --clr-00: rgb(0, 10, 70);
+        --clr-01: rgb(0, 0, 50);
+        --clr-02: rgb(0, 10, 50);
+        --clr-03: rgb(0, 0, 90);
+        --clr-04: rgb(0, 20, 70);
+        --clr-05: rgb(0, 20, 50);
+        --clr-06: rgb(10, 0, 70);
+        --clr-07: rgb(10, 20, 90);
+        --clr-08: rgb(20, 10, 70);
+        --clr-09: rgb(20, 10, 50);
+    }
+    
+    body {
+        background-color: #333;
+        margin: 0;
+        padding: 20px;
+        font-family: Arial, sans-serif;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        min-height: 100vh;
+        align-items: center;
+        justify-items: center;
+    }
+    
+    .title {
+        grid-column: 1 / -1;
+        font-size: 24px;
+        font-weight: bold;
+        color: white;
+        text-align: center;
+        margin-bottom: 20px;
+        background-color: rgba(0,0,0,0.7);
+        padding: 10px 20px;
+        border-radius: 8px;
+    }
+    
+    .ellipse {
+        width: 400px;
+        height: 100px;
+        border-radius: 200px / 50px;
+        background-color: var(--ellipse-blue);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        padding: 8px 16px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+    
+    .letter-tile {
+        width: 40px;
+        height: 40px;
+        color: var(--yellow1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        font-weight: bold;
+        font-family: Arial, sans-serif;
+        border-radius: 6px;
+        border: 1px solid #000;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    
+    .color-label {
+        font-size: 20px;
+        color: white;
+        text-align: center;
+        margin-top: 5px;
+        background-color: rgba(0,0,0,0.7);
+        padding: 4px 8px;
+        border-radius: 4px;
+    }
+    
+    /* Dynamic tile backgrounds using CSS nth-child selectors */
+    .tile-item:nth-child(2) .letter-tile { background-color: var(--clr-00); }
+    .tile-item:nth-child(3) .letter-tile { background-color: var(--clr-01); }
+    .tile-item:nth-child(4) .letter-tile { background-color: var(--clr-02); }
+    .tile-item:nth-child(5) .letter-tile { background-color: var(--clr-03); }
+    .tile-item:nth-child(6) .letter-tile { background-color: var(--clr-04); }
+    .tile-item:nth-child(7) .letter-tile { background-color: var(--clr-05); }
+    .tile-item:nth-child(8) .letter-tile { background-color: var(--clr-06); }
+    .tile-item:nth-child(9) .letter-tile { background-color: var(--clr-07); }
+    .tile-item:nth-child(10) .letter-tile { background-color: var(--clr-08); }
+    .tile-item:nth-child(11) .letter-tile { background-color: var(--clr-09); }
+    .tile-item:nth-child(12) .letter-tile { background-color: var(--clr-10); }
+    .tile-item:nth-child(13) .letter-tile { background-color: var(--clr-11); }
+    .tile-item:nth-child(14) .letter-tile { background-color: var(--clr-12); }
+    .tile-item:nth-child(15) .letter-tile { background-color: var(--clr-13); }
+    .tile-item:nth-child(16) .letter-tile { background-color: var(--clr-14); }
+    .tile-item:nth-child(17) .letter-tile { background-color: var(--clr-15); }
+    .tile-item:nth-child(18) .letter-tile { background-color: var(--clr-16); }
+    .tile-item:nth-child(19) .letter-tile { background-color: var(--clr-17); }
+    .tile-item:nth-child(20) .letter-tile { background-color: var(--clr-18); }
+    .tile-item:nth-child(21) .letter-tile { background-color: var(--clr-19); }
+    .tile-item:nth-child(22) .letter-tile { background-color: var(--clr-20); }
+    .tile-item:nth-child(23) .letter-tile { background-color: var(--clr-21); }
+    .tile-item:nth-child(24) .letter-tile { background-color: var(--clr-22); }
+    .tile-item:nth-child(25) .letter-tile { background-color: var(--clr-23); }
+    .tile-item:nth-child(26) .letter-tile { background-color: var(--clr-24); }
+    .tile-item:nth-child(27) .letter-tile { background-color: var(--clr-25); }
+    .tile-item:nth-child(28) .letter-tile { background-color: var(--clr-26); }
+    .tile-item:nth-child(29) .letter-tile { background-color: var(--clr-27); }
+    .tile-item:nth-child(30) .letter-tile { background-color: var(--clr-28); }
+    .tile-item:nth-child(29) .letter-tile { background-color: var(--clr-27); }
+    .tile-item:nth-child(30) .letter-tile { background-color: var(--clr-28); }
+    .tile-item:nth-child(31) .letter-tile { background-color: var(--clr-29); }
+    
+    @media (max-width: 1400px) {
+        body {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    
+    @media (max-width: 900px) {
+        body {
+            grid-template-columns: 1fr;
+        }
+        
+        .ellipse {
+            width: 90vw;
+            height: 12vw;
+            border-radius: 45vw / 6vw;
+        }
+        
+        .letter-tile {
+            width: 8vw;
+            height: 8vw;
+            font-size: 4vw;
+        }
+        
+        .color-label {
+            font-size: 3vw;
+        }
+    }
+</style>
+</head>
+<body>
+    <div class="title">Letter: rgb(252, 188, 18) | Ellipse: #5bccf7 | Experimenting with Tile Background Colors</div>
+    
+    <script>
+        // Get all CSS custom properties starting with --clr-
+        const styles = getComputedStyle(document.documentElement);
+        const tileColors = [];
+        
+        // Extract tile color variables from CSS
+        for (let i = 0; i < 30; i++) {
+            const colorVar = `--clr-${i.toString().padStart(2, '0')}`;
+            const colorValue = styles.getPropertyValue(colorVar).trim();
+            if (colorValue) {
+                tileColors.push({ var: colorVar, value: colorValue });
+            }
+        }
+        
+        // Generate HTML for each tile color
+        const body = document.body;
+        tileColors.forEach((color, index) => {
+            const div = document.createElement('div');
+            div.className = 'tile-item';
+            div.innerHTML = `
+                <div class="ellipse">
+                    <div class="letter-tile" style="background-color: ${color.value}">S</div>
+                    <div class="letter-tile" style="background-color: ${color.value}">C</div>
+                    <div class="letter-tile" style="background-color: ${color.value}">W</div>
+                    <div class="letter-tile" style="background-color: ${color.value}">H</div>
+                    <div class="letter-tile" style="background-color: ${color.value}">J</div>
+                    <div class="letter-tile" style="background-color: ${color.value}">I</div>
+                    <div class="letter-tile" style="background-color: ${color.value}">K</div>
+                    <div class="letter-tile" style="background-color: ${color.value}">Z</div>
+                </div>
+                <div class="color-label">${color.value}</div>
+            `;
+            body.appendChild(div);
+        });
+    </script>
+</body>
+</html>
